@@ -4,8 +4,8 @@ import { Outlet } from "react-router-dom";
 
 const Main = () => {
    return (
-      <div>
-         <Header />
+      <div className="relative scroll-smooth overflow-hidden">
+      <Header />
          <div className="min-h-[60vh]">
             <Outlet />
          </div>

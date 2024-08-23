@@ -60,11 +60,12 @@
 }
 
 @layer base {
-   * {
-      @apply border-border;
-   }
    body {
-      @apply bg-background text-foreground text-[16px] font-medium;
+      @apply bg-background  text-foreground text-[16px] font-medium;
+   }
+
+   .main-container {
+      @apply max-w-[1380px] mx-auto w-full px-6 lg:px-4;
    }
    .primary-text {
       @apply text-[#215AEE];
@@ -85,7 +86,7 @@
       @apply bg-[#023154];
    }
    .body-bg {
-      @apply bg-[#F8F9FA];
+      @apply bg-[#F6F5FF];
    }
 
    /* button  */

@@ -3,7 +3,7 @@ import Hero from './Hero';
 
 const HomePage = () => {
    return (
-      <div>
+      <div className='relative overflow-hidden'>
          <Hero />
       </div>
    );
