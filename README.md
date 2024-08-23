@@ -94,8 +94,7 @@ The application covers the following features:
 
 ## Demo Links
 
--  [Demo 1]()
--  [Demo 2]()
+-  [Live Application Demo](https://healthcarebd.vercel.app)
 
 ## Design Guidelines
 
@@ -115,5 +114,5 @@ The application covers the following features:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/smsohag32/healthcare-app.git
+   git clone https://github.com/smsohag32/health-care-frontend.git
    ```
