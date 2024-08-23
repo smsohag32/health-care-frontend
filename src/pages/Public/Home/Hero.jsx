@@ -23,13 +23,13 @@ const Hero = () => {
                      {/* Title */}
                      <div className="mt-3 max-w-3xl">
                         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-                           Book a Doctor's Appointment with Health Care
+                           Book a Doctor&apos;s Appointment with Health Care
                         </h1>
                      </div>
 
                      <div className="mt-5 max-w-3xl">
                         <p className="text-xl text-muted-foreground">
-                           Say goodbye to endless phone calls and long queues. Book doctor's appointments, video consultations, ambulance service, manage medical records, and more. Take the first step towards better health.
+                           Say goodbye to endless phone calls and long queues. Book doctor&apos;s appointments, video consultations, ambulance service, manage medical records, and more. Take the first step towards better health.
                         </p>
                      </div>
                      {/* SearchBox */}

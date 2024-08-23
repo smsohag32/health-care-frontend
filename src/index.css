@@ -64,6 +64,22 @@
       @apply bg-background  text-foreground text-[16px] font-medium;
    }
 
+   body::-webkit-scrollbar {
+      width: 8px;
+   }
+
+   body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+   }
+
+   body::-webkit-scrollbar-thumb {
+      background-color: #8888884b;
+      border-radius: 10px;
+   }
+
+   body::-webkit-scrollbar-thumb:hover {
+      background-color: #55555568;
+   }
    .main-container {
       @apply max-w-[1380px] mx-auto w-full px-6 lg:px-4;
    }
