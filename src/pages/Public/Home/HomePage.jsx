@@ -1,10 +1,14 @@
 import React from 'react';
 import Hero from './Hero';
+import ServiceSection from './ServiceSection';
+import TopSpecialized from './TopSpecialized';
 
 const HomePage = () => {
    return (
-      <div className='relative overflow-hidden'>
+      <div className='min-h-screen'>
          <Hero />
+         <ServiceSection />
+         <TopSpecialized />
       </div>
    );
 };

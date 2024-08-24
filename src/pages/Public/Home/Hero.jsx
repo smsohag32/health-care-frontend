@@ -1,11 +1,12 @@
+import SearchBox from '@/components/SearchBox/SearchBox';
 import { Button } from '@/components/ui/button';
 import React from 'react';
 
 const Hero = () => {
    return (
-      <div className='h-[680px] bg-opacity-80 backdrop-blur-sm  secondary-bg'>
+      <div className=' bg-opacity-80 z-30 backdrop-blur-sm  secondary-bg'>
 
-         <div className="relative overflow-hidden py-24 lg:py-32">
+         <div className="relative  py-24 lg:py-10">
             <div
                aria-hidden="true"
                className="flex absolute -top-96 start-1/2 transform -translate-x-1/2"
@@ -33,9 +34,9 @@ const Hero = () => {
                         </p>
                      </div>
                      {/* SearchBox */}
-                     <div className="mt-8 gap-3 flex justify-center">
-                        <Button size={"lg"}>Search</Button>
-                     </div>
+                  </div>
+                  <div className="mt-8 w-full main-container gap-3 flex justify-center">
+                     <SearchBox />
                   </div>
                </div>
             </div>
