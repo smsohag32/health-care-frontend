@@ -1,4 +1,5 @@
 import { ServiceCard } from "@/components/cards/ServiceCard";
+import { Ambulance, Home, Hospital, House } from "lucide-react";
 import * as React from "react";
 
 const ServiceSection = () => {
@@ -48,65 +49,21 @@ const ServiceSection = () => {
             title="Doctor At Your Home"
             description="Book a doctor to visit you at home."
             icon={
-               <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="w-6 h-6 text-indigo-600"
-               >
-                  <path
-                     strokeLinecap="round"
-                     strokeLinejoin="round"
-                     d="M12 8c-3.9 0-7 2.14-7 4.774 0 1.53 1.283 2.872 3.242 3.618l-.492 3.14c-.089.573.423 1.034.968.865l4.563-1.425a.615.615 0 01.373 0l4.563 1.425c.545.17 1.057-.292.968-.865l-.492-3.14C17.717 15.646 19 14.305 19 12.774 19 10.14 15.9 8 12 8z"
-                  />
-                  <path
-                     strokeLinecap="round"
-                     strokeLinejoin="round"
-                     d="M12 8V6m0-3h.01M9 3v3m6-3v3"
-                  />
-               </svg>
+               <House />
             }
          />
          <ServiceCard
             title="Ambulance Service"
             description="24/7 Emergency Ambulance Service."
             icon={
-               <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="w-6 h-6 text-indigo-600"
-               >
-                  <path
-                     strokeLinecap="round"
-                     strokeLinejoin="round"
-                     d="M16 7h-1V3H9v4H8l-5 5v5h1a3 3 0 003 3 3 3 0 003-3h4a3 3 0 003 3 3 3 0 003-3h1v-5l-5-5zM3 12h16M9 22h0M15 22h0"
-                  />
-               </svg>
+               <Ambulance />
             }
          />
          <ServiceCard
             title="Domiciliary Service"
             description="Physiotherapy and Nurse service at home."
             icon={
-               <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="w-6 h-6 text-indigo-600"
-               >
-                  <path
-                     strokeLinecap="round"
-                     strokeLinejoin="round"
-                     d="M19.5 9.5l-7 7-4-4M13.5 8.5L11 6l-6 6v5.5H10M13.5 8.5h4.5v4.5"
-                  />
-               </svg>
+               <Hospital />
             }
          />
       </div>

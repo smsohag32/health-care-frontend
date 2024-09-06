@@ -6,7 +6,7 @@ export function ServiceCard({ title, description, icon }) {
    return (
       <Card className="w-full shadow-md rounded-lg bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300 ease-in-out">
          <CardHeader className="p-4 flex items-center justify-center">
-            <div className="flex items-center justify-center h-12 w-12 bg-indigo-100 rounded-full">
+            <div className="flex items-center justify-center h-12 w-12 primary-text bg-indigo-100 rounded-full">
                {icon}
             </div>
          </CardHeader>
