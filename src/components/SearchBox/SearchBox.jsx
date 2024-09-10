@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CustomDropdown from '../Dropdown/CustomDropdown';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBox = () => {
    const [selectedCategory, setSelectedCategory] = useState('all');
@@ -8,10 +9,17 @@ const SearchBox = () => {
    const [selectedCity, setSelectedCity] = useState('all');
    const [selectedDistance, setSelectedDistance] = useState('all');
    const [selectedConsultationType, setSelectedConsultationType] = useState('all');
+   const navigate = useNavigate()
 
+
+
+   // search function
+   const handleSearch = () => {
+      navigate('/find-doctors')
+   }
    return (
-      <div className='w-full'>
-         <div className='bg-white p-10  rounded-[8px] '>
+   <div className='w-full bg-transparent' >
+         <div className=' py-10 footer-bg px-14  rounded-[8px] '>
             <div className='flex items-center flex-col md:flex-row gap-6'>
                <div className='w-full flex items-center gap-4 max-w-[150px]'>
                   <CustomDropdown
@@ -40,7 +48,7 @@ const SearchBox = () => {
                      <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg></span>
                </div>
-               <button className='primary-btn max-w-[180px]'>Search</button>
+               <button onClick={handleSearch} className='text-white text-base hover:bg-[#174cc5] transition-all duration-300  font-medium px-12 py-3 rounded-[8px]  whitespace-nowrap primary-bg  max-w-[180px]'>Search</button>
             </div>
             <div className='lg:flex hidden mt-4 items-center justify-between gap-6'>
                <CustomDropdown

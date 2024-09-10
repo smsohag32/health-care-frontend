@@ -35,7 +35,7 @@ const Hero = () => {
                      </div>
                      {/* SearchBox */}
                   </div>
-                  <div className="mt-8 w-full main-container gap-3 flex justify-center">
+                  <div className="mt-8 w-full  main-container gap-3 flex justify-center">
                      <SearchBox />
                   </div>
                </div>

@@ -14,7 +14,7 @@ const HomeVisit = () => {
 
                <div>
                   <button className="text-white text-base hover:bg-[#1340a7] transition-all duration-300  font-medium px-12 py-4 rounded-[8px]  whitespace-nowrap primary-bg  mt-10">
-                     Request for Home appointment
+                     Request for suggestion
                   </button>
                </div>
             </div>

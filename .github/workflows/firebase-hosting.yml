@@ -1,0 +1,35 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main  # Or whichever branch you want to deploy from
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the latest code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Node.js (use the version you need)
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Choose the version of Node.js you need
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Build the React project
+    - name: Build project
+      run: npm run build
+
+    # Step 5: Deploy to Firebase Hosting
+    - name: Deploy to Firebase
+      run: firebase deploy --only hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

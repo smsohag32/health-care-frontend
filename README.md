@@ -94,7 +94,7 @@ The application covers the following features:
 
 ## Demo Links
 
--  [Live Application Demo](https://healthcarebd.vercel.app)
+-  [Live Application Demo](https://healthcare-8a91b.web.app)
 
 ## Design Guidelines
 
