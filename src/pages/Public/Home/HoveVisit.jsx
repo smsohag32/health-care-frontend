@@ -2,7 +2,7 @@ import React from "react";
 import doctorImage from "@/assets/doctor.webp"
 const HomeVisit = () => {
    return (
-      <section className="footer-bg pt-10 mb-24">
+      <section className=" bg-gradient-to-l from-blue-950 via-[#19016e] pt-10 mb-24">
          <div className="main-container flex items-center flex-col-reverse lg:flex-row gap-10">
             <div className="w-full pe-10 lg:pe-0">
                <img src={doctorImage} alt="" className="" />

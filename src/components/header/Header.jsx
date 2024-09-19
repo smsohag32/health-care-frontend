@@ -19,7 +19,7 @@ const Header = () => {
          <div className='py-4 sticky top-0 right-0 left-0 z-50 border-[0.5px] bg-opacity-90 body-bg border-b-gray-200'>
             <nav className='main-container  flex items-center justify-between'>
                <div className='flex z-50 items-center lg:gap-16'>
-                  <Link to={'/'}>
+               <Link to={'/'}>
                      <img className='w-[150px] lg:w-[180px]' src={logo} alt="logo" />
                   </Link>
 
