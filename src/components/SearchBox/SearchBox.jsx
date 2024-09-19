@@ -18,7 +18,7 @@ const SearchBox = () => {
       navigate('/find-doctors')
    }
    return (
-   <div className='w-full bg-transparent' >
+      <div className='w-full bg-transparent' >
          <div className=' py-10 footer-bg px-14  rounded-[8px] '>
             <div className='flex items-center flex-col md:flex-row gap-6'>
                <div className='w-full flex items-center gap-4 max-w-[150px]'>
@@ -27,7 +27,7 @@ const SearchBox = () => {
                         { label: "All", value: "all" },
                         { label: "Doctors", value: "doctors" },
                         { label: "Hospitals", value: "hospitals" },
-                        { label: "Ambulance", value: "ambulance" },
+                     { label: "Ambulance", value: "ambulance" },
                      ]}
                      title={"All"}
                      onSelect={setSelectedCategory}

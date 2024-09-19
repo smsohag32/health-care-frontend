@@ -15,7 +15,7 @@ const ServiceSection = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-6 h-6 text-indigo-600"
+                  className="w-12 h-12 text-indigo-600"
                >
                   <path
                      strokeLinecap="round"
@@ -35,7 +35,7 @@ const ServiceSection = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-6 h-6 text-indigo-600"
+                  className="w-12 h-12 text-indigo-600"
                >
                   <path
                      strokeLinecap="round"
@@ -49,21 +49,21 @@ const ServiceSection = () => {
             title="Doctor At Your Home"
             description="Book a doctor to visit you at home."
             icon={
-               <House />
+               <House className="" size={48} />
             }
          />
          <ServiceCard
             title="Ambulance Service"
             description="24/7 Emergency Ambulance Service."
             icon={
-               <Ambulance />
+               <Ambulance size={48} />
             }
          />
          <ServiceCard
             title="Domiciliary Service"
             description="Physiotherapy and Nurse service at home."
             icon={
-               <Hospital />
+               <Hospital size={48} />
             }
          />
       </div>

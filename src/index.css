@@ -62,6 +62,7 @@
 @layer base {
    body {
       @apply bg-background  text-foreground text-[16px] font-medium;
+      scroll-behavior: smooth;
    }
 
    body::-webkit-scrollbar {

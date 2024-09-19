@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 const Main = () => {
    return (
       <div className="relative scroll-smooth overflow-hidden">
-      <Header />
+         <Header />
          <div className="min-h-[60vh]">
             <Outlet />
          </div>
