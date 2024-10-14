@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Calendar } from "@/components/ui/calendar"
+import {
+   Popover,
+   PopoverContent,
+   PopoverTrigger,
+} from "@/components/ui/popover"
+
 import doctorImage from "@/assets/doctors/doctor_2.jpg"
+import { Button } from '../ui/button';
+import { cn } from '@/lib/utils';
+import { CalendarIcon } from 'lucide-react';
+import { format } from 'date-fns';
 const DoctorCard = ({ doctor }) => {
+   const [date, setDate] = useState()
+
    return (
       <div className='primary-shadow  relative rounded-[8px] bg-white p-6'>
          <div className='flex gap-6 items-start'>
@@ -34,13 +47,35 @@ const DoctorCard = ({ doctor }) => {
          </div>
          <button className='absolute right-0 py-2 flex items-center justify-center px-5 secondary-bg top-0'>Available Call</button>
 
-         <hr />
+         <hr className='mt-4' />
 
-         <div className='py-3 flex justify-end items-center'>
+         <div className='mt-6  flex justify-end items-center gap-6'>
             <div className='flex items-center gap-2'>
                <p className='des-text text-base'>Book appointment for</p>
+               <Popover>
+                  <PopoverTrigger asChild>
+                     <Button
+                        variant={"outline"}
+                        className={cn(
+                           "w-[280px] justify-start text-left font-normal",
+                           !date && "text-muted-foreground"
+                        )}
+                     >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {date ? format(date, "PPP") : <span>Pick a date</span>}
+                     </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0">
+                     <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                        initialFocus
+                     />
+                  </PopoverContent>
+               </Popover>
             </div>
-            <button className='outline-btn max-w-[180px]'>Book appointment</button>
+            <button className='primary-btn max-w-[180px] !py-2.5 whitespace-nowrap'>Book appointment</button>
          </div>
       </div>
    );

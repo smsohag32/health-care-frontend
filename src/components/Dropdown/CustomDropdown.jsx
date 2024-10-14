@@ -46,7 +46,7 @@ const CustomDropdown = ({ options, title, onSelect, ...props }) => {
                className="text-base flex items-center w-full justify-between font-normal outline-none rounded-[4px] px-3 py-2 gap-3 min-w-[150px]  placeholder:text-[16px] bg-white  border-[1.5px]  placeholder:font-[400] placeholder:text-[#6C6C6C]">
                <p className="flex items-center text-base font-normal gap-2">
                   {selectedLanguage?.icon}
-                  <span className="mt-[2px] lg:block">
+                  <span className="mt-[2px] lg:block lg:whitespace-nowrap">
                      {selectedLanguage?.label || title}
                   </span>
                </p>

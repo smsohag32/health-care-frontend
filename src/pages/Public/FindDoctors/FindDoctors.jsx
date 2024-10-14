@@ -5,11 +5,11 @@ import Doctors from './Doctors';
 
 const FindDoctors = () => {
    return (
-      <div className='main-container'>
+      <div className='main-container pb-10 relative'>
 
 
 
-         <div className='py-10'>
+         <div className='py-10 sticky top-0'>
             <SearchBox />
          </div>
 

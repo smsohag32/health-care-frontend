@@ -1,14 +1,14 @@
 import React from 'react';
 import { Separator } from '../ui/separator';
-
+import logo from "@/assets/logo/logo.webp";
 const Footer = () => {
    return (
       <footer className='footer-bg pt-12 pb-8 text-white'>
-         <div className='main-container grid grid-cols-1 md:grid-cols-3 gap-8'>
+         <div className='main-container grid grid-cols-1 items-start md:grid-cols-3 gap-8'>
             {/* About Us */}
             <div>
                <h2 className='text-[28px] font-medium'>HealthCare</h2>
-               <p className='text-base font-normal text-gray-300'>
+               <p className='text-base font-normal text-gray-100 mt-4'>
                   HealthCare is a comprehensive hospital management system designed to
                   streamline operations, improve patient care, and enhance communication between
                   patients, doctors, and administrators. From appointment scheduling to administrative
@@ -42,7 +42,7 @@ const Footer = () => {
          {/* Bottom Section */}
          <div className='main-container'>
             <Separator className="my-4" />
-            <div className='flex justify-between items-center text-gray-400 text-sm'>
+            <div className='flex justify-between items-center text-gray-200 text-sm'>
                <p>© {new Date().getFullYear()} HealthCare. All rights reserved.</p>
                <p>
                   <a href='#' className='hover:underline pe-2 '>Privacy Policy</a> |

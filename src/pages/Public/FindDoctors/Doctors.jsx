@@ -3,8 +3,9 @@ import React from 'react';
 
 const Doctors = () => {
    return (
-      <div>
+      <div className='grid gap-6'>
 
+         <DoctorCard />
          <DoctorCard />
 
       </div>
