@@ -81,7 +81,7 @@
       background-color: #55555568;
    }
    .main-container {
-      @apply max-w-[1380px] mx-auto w-full px-6 lg:px-4;
+      @apply max-w-[1280px] mx-auto w-full px-6 lg:px-4;
    }
    .primary-text {
       @apply text-[#215AEE];

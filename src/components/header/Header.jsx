@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from "@/assets/logo/logo.webp";
 import { Link, NavLink } from 'react-router-dom';
+import { Button } from '../ui/button';
 
 
 const Header = () => {
@@ -15,7 +16,7 @@ const Header = () => {
    };
 
    return (
-      <div className='py-4 sticky top-0 z-50 border-[0.5px] body-bg border-b-gray-200'>
+      <div className='py-4 sticky top-0 z-50 border-[0.5px]  bg-white border-b-gray-200'>
          <nav className='main-container  flex items-center justify-between'>
             <div className='flex z-50 items-center lg:gap-16'>
                <Link to={'/'}>
@@ -32,14 +33,7 @@ const Header = () => {
                   >
                      Find Doctors
                   </NavLink>
-                  <NavLink
-                     to="/find-hospital"
-                     className={({ isActive }) =>
-                        isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                     }
-                  >
-                     Find Hospital
-                  </NavLink>
+
                   <NavLink
                      to="/find-ambulance"
                      className={({ isActive }) =>
@@ -48,11 +42,21 @@ const Header = () => {
                   >
                      Find Ambulance
                   </NavLink>
+
+                  <NavLink
+                     to="/find-hospital"
+                     className={({ isActive }) =>
+                        isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
+                     }
+                  >
+                     Find Hospital
+                  </NavLink>
+
                </div>
             </div>
             {/* user authentication  */}
             <div className='hidden lg:block'>
-               <Link className='outline-btn' to={'/auth/login'}>Login / Register</Link>
+               <Button onClick={closeMenu} >Login / Register</Button>
             </div>
 
 
@@ -78,6 +82,14 @@ const Header = () => {
                   Find Doctors
                </NavLink>
                <NavLink
+                  to="/find-ambulance"
+                  className={({ isActive }) =>
+                     isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
+                  }
+               >
+                  Find Ambulance
+               </NavLink>
+               <NavLink
                   to="/find-hospital"
                   onClick={closeMenu}
                   className={({ isActive }) =>
@@ -86,19 +98,11 @@ const Header = () => {
                >
                   Find Hospital
                </NavLink>
-               <NavLink
-                  to="/find-ambulance"
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
-                     isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                  }
-               >
-                  Find Ambulance
-               </NavLink>
+
 
                {/* user authentication  */}
                <div className='lg:hidden mt-10'>
-                  <Link onClick={closeMenu} className='outline-btn' to={'/auth/login'}>Login / Register</Link>
+                  <Button onClick={closeMenu} >Login / Register</Button>
                </div>
             </div>
 

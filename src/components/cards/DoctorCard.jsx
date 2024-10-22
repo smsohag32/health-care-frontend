@@ -1,14 +1,15 @@
 import React from 'react';
 import doctorImage from "@/assets/doctors/doctor_2.jpg"
+import { Button } from '../ui/button';
 const DoctorCard = ({ doctor }) => {
    return (
-      <div className='primary-shadow  relative rounded-[8px] bg-white p-6'>
+      <div className='primary-shadow  relative rounded-[8px] bg-white px-5 pt-4 pb-2'>
          <div className='flex gap-6 items-start'>
             <div className='w-32 h-28 '>
                <img src={doctorImage} className='w-32 h-28 rounded-[8px] object-cover' alt="doctor" />
             </div>
             <div>
-               <h2 className='text-[20px] font-medium text-gray-800'>Dr. Tahmina Begum</h2>
+               <h2 className='text-[20px] font-medium text-gray-800'>Dr. Tarikul Islam</h2>
                <p className='des-text max-w-sm font-normal text-base'>MBBSBCS (Health)
                   MPhil (Pathology). Pathologist Years of Experience: Coming Soon</p>
                <p className='title-text'>Years of Experience : <span>2 Years</span></p>
@@ -34,13 +35,10 @@ const DoctorCard = ({ doctor }) => {
          </div>
          <button className='absolute right-0 py-2 flex items-center justify-center px-5 secondary-bg top-0'>Available Call</button>
 
-         <hr />
+         <hr className='mt-6' />
 
-         <div className='py-3 flex justify-end items-center'>
-            <div className='flex items-center gap-2'>
-               <p className='des-text text-base'>Book appointment for</p>
-            </div>
-            <button className='outline-btn max-w-[180px]'>Book appointment</button>
+         <div className='py-3 flex justify-end items-center mt-4'>
+            <Button className='outline-btn max-w-[180px]'>Book appointment</Button>
          </div>
       </div>
    );
