@@ -7,6 +7,7 @@ import heroImage from "@/assets/hero/hero.webp"
 // hero component for home page
 const Hero = () => {
    return (
+<<<<<<< HEAD
       <div
          className='relative bg-cover bg-center bg-no-repeat z-30'
          style={{ backgroundImage: `url(${heroImage})` }}
@@ -18,11 +19,25 @@ const Hero = () => {
 
             <div className="relative z-30">
                <div className="main-container py-10 lg:py-16">
+=======
+      <div className=' bg-opacity-80 z-30 backdrop-blur-sm  '>
+
+         <div className="relative  py-24 lg:py-10">
+
+
+
+            <div className="relative z-10">
+               <div className="main-container py-10 lg:pt-10 pb-16">
+>>>>>>> 7cab6a3596c6f3fe4e1e94c978322079e392c0d8
                   <div className="max-w-3xl text-center mx-auto">
                      <p className=" text-[#f8f8f8]">Your Health, Our Priority</p>
                      {/* Title */}
                      <div className="mt-3 max-w-3xl">
+<<<<<<< HEAD
                         <h1 className="scroll-m-20 text-[#fcfcfc] leading-[30px] text-4xl font-extrabold tracking-tight lg:text-5xl">
+=======
+                        <h1 className="scroll-m-20  text-[#161616] text-4xl font-extrabold tracking-tight lg:text-5xl">
+>>>>>>> 7cab6a3596c6f3fe4e1e94c978322079e392c0d8
                            Book a Doctor&apos;s Appointment with Health Care
                         </h1>
                      </div>
