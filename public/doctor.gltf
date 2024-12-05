@@ -1,0 +1,28 @@
+{
+    "asset": {
+        "version": "2.0",
+        "generator": "Open Asset Import Library (assimp v5.4.0)"
+    },
+    "extensionsUsed": [
+        "FB_ngon_encoding"
+    ],
+    "buffers": [
+        {
+            "byteLength": 0,
+            "uri": "Doctor_-_Sketchfab_Weekly_-_13_Mar23_0.bin"
+        }
+    ],
+    "nodes": [
+        {
+            "name": "Doctor_-_Sketchfab_Weekly_-_13_Mar23"
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0
+}

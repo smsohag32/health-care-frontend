@@ -6,7 +6,7 @@ const Main = () => {
    return (
       <div className="relative scroll-smooth overflow-hidden">
          <Header />
-         <div className="min-h-[60vh]">
+         <div className="min-h-[60vh] pt-20">
             <Outlet />
          </div>
          <Footer />

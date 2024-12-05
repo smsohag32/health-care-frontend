@@ -1,191 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from "@/assets/logo/logo.webp";
 import { Link, NavLink } from 'react-router-dom';
-import { Button } from '../ui/button';
-
+import { Menu } from 'lucide-react';
 
 const Header = () => {
-   const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const [isScrolled, setIsScrolled] = useState(false);
 
-   const toggleMenu = () => {
-      setIsMenuOpen(!isMenuOpen);
-   };
+   const navItems = [
+      { name: 'Home', path: '/' },
+      { name: 'Find Doctors', path: '/find-doctors' },
+      { name: 'Find Ambulance', path: '/find-ambulance' },
+      { name: 'Find Hospital', path: '/find-hospital' },
+   ];
 
-   const closeMenu = () => {
-      setIsMenuOpen(false);
-   };
+   useEffect(() => {
+      const handleScroll = () => {
+         setIsScrolled(window.scrollY > 50);
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+         window.removeEventListener('scroll', handleScroll);
+      };
+   }, []);
 
    return (
-<<<<<<< HEAD
-      <div className='w-full bg-white '>
-         <div className='py-4 sticky bg-white top-0 right-0 left-0 z-50 border-[0.5px] bg-opacity-90 body-bg border-b-gray-200'>
-            <nav className='main-container  flex items-center justify-between'>
-               <div className='flex z-50 items-center lg:gap-16'>
-                  <Link to={'/'}>
-                     <img className='w-[150px] lg:w-[180px]' src={logo} alt="logo" />
-                  </Link>
-=======
-      <div className='py-4 sticky top-0 z-50 border-[0.5px]  bg-white border-b-gray-200'>
-         <nav className='main-container  flex items-center justify-between'>
+      <div
+         className={`fixed right-0 left-0 top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+            }`}
+      >
+         <nav className='main-container flex items-center justify-between'>
             <div className='flex z-50 items-center lg:gap-16'>
                <Link to={'/'}>
                   <img className='w-[150px] lg:w-[180px]' src={logo} alt="logo" />
                </Link>
->>>>>>> 7cab6a3596c6f3fe4e1e94c978322079e392c0d8
-
-                  {/* large device*/}
-                  <div className='hidden lg:flex items-center gap-6'>
-                     <NavLink
-                        to="/find-doctors"
-                        className={({ isActive }) =>
-                           isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                        }
-                     >
-                        Find Doctors
-                     </NavLink>
-                     <NavLink
-                        to="/find-hospital"
-                        className={({ isActive }) =>
-                           isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                        }
-                     >
-                        Find Hospital
-                     </NavLink>
-                     <NavLink
-                        to="/find-ambulance"
-                        className={({ isActive }) =>
-                           isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                        }
-                     >
-                        Find Ambulance
-                     </NavLink>
-                  </div>
-               </div>
-               {/* user authentication  */}
-               <div className='hidden lg:block'>
-                  <Link className='primary-btn !py-3' to={'/auth/login'}>Login / Register</Link>
-               </div>
-
-
-               {/* toggle button */}
-
-               <div className='lg:hidden z-50 block'>
-                  <button onClick={toggleMenu} className='title-text'><svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M3 12H21M3 6H21M9 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  </button>
-               </div>
-               {/* small device  */}
-
-
-               <div className={`lg:hidden border pt-20 mt-[80px] fixed inset-0 body-bg p-6 z-40 w-full flex flex-col items-center gap-6 overflow-hidden transition-transform duration-500  ease-in-out ${isMenuOpen ? 'transform duration-500 translate-y-0  opacity-100' : 'transform -translate-y-full opacity-0'}`}>
-                  <NavLink
-                     to="/find-doctors"
-                     onClick={closeMenu}
-                     className={({ isActive }) =>
-                        isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                     }
-                  >
-                     Find Doctors
-                  </NavLink>
-<<<<<<< HEAD
-                  <NavLink
-                     to="/find-hospital"
-                     onClick={closeMenu}
-                     className={({ isActive }) =>
-                        isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                     }
-                  >
-                     Find Hospital
-                  </NavLink>
-=======
-
->>>>>>> 7cab6a3596c6f3fe4e1e94c978322079e392c0d8
-                  <NavLink
-                     to="/find-ambulance"
-                     onClick={closeMenu}
-                     className={({ isActive }) =>
-                        isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                     }
-                  >
-                     Find Ambulance
-                  </NavLink>
-
-<<<<<<< HEAD
-                  {/* user authentication  */}
-                  <div className='lg:hidden mt-10'>
-                     <Link onClick={closeMenu} className='outline-btn' to={'/auth/login'}>Login / Register</Link>
-                  </div>
-               </div>
-
-            </nav>
-         </div>
-=======
-                  <NavLink
-                     to="/find-hospital"
-                     className={({ isActive }) =>
-                        isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                     }
-                  >
-                     Find Hospital
-                  </NavLink>
-
-               </div>
-            </div>
-            {/* user authentication  */}
-            <div className='hidden lg:block'>
-               <Button onClick={closeMenu} >Login / Register</Button>
             </div>
 
-
-            {/* toggle button */}
+            <div className='hidden lg:flex items-center gap-8'>
+               <div className='hidden lg:flex items-center gap-6'>
+                  {navItems.map(({ name, path }) => (
+                     <NavLink
+                        key={path}
+                        to={path}
+                        className={({ isActive }) =>
+                           `py-4 relative transition-all text-base  duration-300 font-medium ${isActive ? 'text-skyblue ' : 'text-title'}`
+                        }
+                     >
+                        {name}
+                     </NavLink>
+                  ))}
+               </div>
+            </div>
 
             <div className='lg:hidden z-50 block'>
-               <button onClick={toggleMenu} className='title-text'><svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 12H21M3 6H21M9 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-               </svg>
+               <button>
+                  <Menu />
                </button>
             </div>
-            {/* small device  */}
-
-
-            <div className={`lg:hidden border pt-20 mt-[80px] fixed inset-0 body-bg p-6 z-40 w-full flex flex-col items-center gap-6 overflow-hidden transition-transform duration-500  ease-in-out ${isMenuOpen ? 'transform duration-500 translate-y-0  opacity-100' : 'transform -translate-y-full opacity-0'}`}>
-               <NavLink
-                  to="/find-doctors"
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
-                     isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                  }
-               >
-                  Find Doctors
-               </NavLink>
-               <NavLink
-                  to="/find-ambulance"
-                  className={({ isActive }) =>
-                     isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                  }
-               >
-                  Find Ambulance
-               </NavLink>
-               <NavLink
-                  to="/find-hospital"
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
-                     isActive ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                  }
-               >
-                  Find Hospital
-               </NavLink>
-
-
-               {/* user authentication  */}
-               <div className='lg:hidden mt-10'>
-                  <Button onClick={closeMenu} >Login / Register</Button>
-               </div>
-            </div>
-
          </nav>
->>>>>>> 7cab6a3596c6f3fe4e1e94c978322079e392c0d8
       </div>
    );
 };

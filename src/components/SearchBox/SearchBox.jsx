@@ -18,9 +18,62 @@ const SearchBox = () => {
       navigate('/find-doctors')
    }
    return (
-      <div className='w-full bg-transparent' >
-         <div className=' py-10 footer- bg-blue-950 px-14  rounded-[8px] '>
-            <div className='flex items-center flex-col md:flex-row gap-6'>
+      <div className='w-full' >
+         <div className=' py-10 footer- bg-skyblue px-14  rounded-[8px] '>
+            <div className='lg:flex hidden items-center justify-between gap-6'>
+               <CustomDropdown
+                  options={[
+                     { label: "All", value: "all" },
+                     { label: "Male", value: "male" },
+                     { label: "Female", value: "female" },
+                  ]}
+                  placeholder={"Gender"}
+                  onSelect={setSelectedGender}
+               />
+               <CustomDropdown
+                  options={[
+                     { label: "All", value: "all" },
+                     { label: "Cardiologist", value: "cardiologist" },
+                     { label: "Dentist", value: "dentist" },
+                     { label: "Neurologist", value: "neurologist" },
+                     { label: "Pediatrician", value: "pediatrician" },
+                  ]}
+                  placeholder={"Specialties"}
+                  onSelect={setSelectedSpecialty}
+               />
+               <CustomDropdown
+                  options={[
+                     { label: "All", value: "all" },
+                     { label: "New York", value: "new_york" },
+                     { label: "Los Angeles", value: "los_angeles" },
+                     { label: "Chicago", value: "chicago" },
+                     { label: "Houston", value: "houston" },
+                  ]}
+                  placeholder={"Cities"}
+                  onSelect={setSelectedCity}
+               />
+               <CustomDropdown
+                  options={[
+                     { label: "All", value: "all" },
+                     { label: "Within 5 miles", value: "5_miles" },
+                     { label: "Within 10 miles", value: "10_miles" },
+                     { label: "Within 20 miles", value: "20_miles" },
+                     { label: "Within 50 miles", value: "50_miles" },
+                  ]}
+                  placeholder={"Distance"}
+                  onSelect={setSelectedDistance}
+               />
+               <CustomDropdown
+                  options={[
+                     { label: "All", value: "all" },
+                     { label: "In-Person", value: "in_person" },
+                     { label: "Online", value: "online" },
+                  ]}
+                  placeholder={"Consultation Type"}
+                  onSelect={setSelectedConsultationType}
+               />
+            </div>
+            <div className='flex items-center mt-4 flex-col md:flex-row gap-6'>
                <div className='w-full flex items-center gap-4 max-w-[150px]'>
                   <CustomDropdown
                      options={[
@@ -29,7 +82,7 @@ const SearchBox = () => {
                         { label: "Hospitals", value: "hospitals" },
                         { label: "Ambulance", value: "ambulance" },
                      ]}
-                     title={"All"}
+                     placeholder={"All"}
                      onSelect={setSelectedCategory}
                   />
                   <div className='lg:hidden'>
@@ -48,60 +101,7 @@ const SearchBox = () => {
                      <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg></span>
                </div>
-               <button onClick={handleSearch} className='text-white text-base hover:bg-[#174cc5] transition-all duration-300  font-medium px-12 py-3 rounded-[8px]  whitespace-nowrap primary-bg  max-w-[180px]'>Search</button>
-            </div>
-            <div className='lg:flex hidden mt-4 items-center justify-between gap-6'>
-               <CustomDropdown
-                  options={[
-                     { label: "All", value: "all" },
-                     { label: "Male", value: "male" },
-                     { label: "Female", value: "female" },
-                  ]}
-                  title={"Gender"}
-                  onSelect={setSelectedGender}
-               />
-               <CustomDropdown
-                  options={[
-                     { label: "All", value: "all" },
-                     { label: "Cardiologist", value: "cardiologist" },
-                     { label: "Dentist", value: "dentist" },
-                     { label: "Neurologist", value: "neurologist" },
-                     { label: "Pediatrician", value: "pediatrician" },
-                  ]}
-                  title={"Specialties"}
-                  onSelect={setSelectedSpecialty}
-               />
-               <CustomDropdown
-                  options={[
-                     { label: "All", value: "all" },
-                     { label: "New York", value: "new_york" },
-                     { label: "Los Angeles", value: "los_angeles" },
-                     { label: "Chicago", value: "chicago" },
-                     { label: "Houston", value: "houston" },
-                  ]}
-                  title={"Cities"}
-                  onSelect={setSelectedCity}
-               />
-               <CustomDropdown
-                  options={[
-                     { label: "All", value: "all" },
-                     { label: "Within 5 miles", value: "5_miles" },
-                     { label: "Within 10 miles", value: "10_miles" },
-                     { label: "Within 20 miles", value: "20_miles" },
-                     { label: "Within 50 miles", value: "50_miles" },
-                  ]}
-                  title={"Distance"}
-                  onSelect={setSelectedDistance}
-               />
-               <CustomDropdown
-                  options={[
-                     { label: "All", value: "all" },
-                     { label: "In-Person", value: "in_person" },
-                     { label: "Online", value: "online" },
-                  ]}
-                  title={"Consultation Type"}
-                  onSelect={setSelectedConsultationType}
-               />
+               <button onClick={handleSearch} className="bg-[#E8F4FA] text-[#178CCB]  rounded-[8px] py-3 px-8 font-semibold  flex items-center gap-2 ">Search</button>
             </div>
          </div>
       </div>

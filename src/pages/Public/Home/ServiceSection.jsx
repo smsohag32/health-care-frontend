@@ -4,7 +4,7 @@ import * as React from "react";
 
 const ServiceSection = () => {
    return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 main-container lg:grid-cols-5 gap-6 py-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:-mt-10 md:grid-cols-3 main-container lg:grid-cols-3 gap-6 pb-16">
          <ServiceCard
             title="Video Consultancy"
             description="Consult with best doctors through video call."
@@ -15,7 +15,7 @@ const ServiceSection = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-12 h-12 text-indigo-600"
+                  className="w-12 h-12 text-skyblue"
                >
                   <path
                      strokeLinecap="round"
@@ -35,7 +35,7 @@ const ServiceSection = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-12 h-12 text-indigo-600"
+                  className="w-12 h-12 text-skyblue"
                >
                   <path
                      strokeLinecap="round"
@@ -57,6 +57,13 @@ const ServiceSection = () => {
             description="24/7 Emergency Ambulance Service."
             icon={
                <Ambulance size={48} />
+            }
+         />
+         <ServiceCard
+            title="Domiciliary Service"
+            description="Physiotherapy and Nurse service at home."
+            icon={
+               <Hospital size={48} />
             }
          />
          <ServiceCard

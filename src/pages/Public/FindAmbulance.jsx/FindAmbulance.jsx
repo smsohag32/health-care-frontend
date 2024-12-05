@@ -1,127 +1,142 @@
-import { Button } from '@/components/ui/button';
-import React from 'react';
-
+import { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select } from "@/components/ui/select"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { AlertCircle, Phone } from 'lucide-react'
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import ambulance from "@/assets/hero/ambulance.svg"
+import { Checkbox } from '@/components/ui/checkbox'
+const emergencyTypes = [
+   { id: "accident", label: "Accident" },
+   { id: "heartAttack", label: "Heart Attack" },
+   { id: "stroke", label: "Stroke" },
+   { id: "respiratoryIssue", label: "Respiratory Issue" },
+   { id: "other", label: "Other" },
+]
 const FindAmbulance = () => {
+   const [isLoading, setIsLoading] = useState(false)
+   const [selectedEmergencies, setSelectedEmergencies] = useState([])
+
+   const handleEmergencyTypeChange = (emergencyId) => {
+      setSelectedEmergencies((prev) =>
+         prev.includes(emergencyId)
+            ? prev.filter((id) => id !== emergencyId)
+            : [...prev, emergencyId]
+      )
+   }
+   const handleSubmit = async (event) => {
+      event.preventDefault()
+      setIsLoading(true)
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      setIsLoading(false)
+      // Handle form submission logic here
+   }
+
+
    return (
-      <div className="bg-gray-100 min-h-screen py-8">
-         <div className="main-container">
-            <div className=" mb-10">
-               <h1 className="text-4xl font-bold text-gray-800">Ambulance Service</h1>
-               <p className="text-lg text-gray-600 mt-2">
-                  Fast and reliable ambulance service available 24/7 for emergency situations.
-               </p>
-               <h2 className="text-2xl font-semibold text-red-700 mt-4">Emergency Hotline</h2>
-               <p className="text-xl mt-2">📞 <span className="font-bold">123-456-7890</span> - Call Now</p>
-               <p className="text-sm text-gray-600 mt-1">For immediate emergency assistance, please call our hotline.</p>
-            </div>
+      <div className="min-h-screen  bg-background">
+         <div className="main-container pb-10">
+            <section className="mb-10 flex items-center">
+               <div className='flex-1'>
+                  <h1 className="text-4xl font-bold text-title">Ambulance Service</h1>
+                  <p className="text-xl text-muted-foreground mt-2">
+                     Fast and reliable ambulance service available 24/7 for emergency situations.
+                  </p>
+                  <Alert variant="destructive" className="mt-14">
+                     <AlertCircle className="h-4 w-4" />
+                     <AlertTitle>Emergency Hotline</AlertTitle>
+                     <AlertDescription>
+                        <a href="tel:999" className="text-xl font-bold flex items-center">
+                           <Phone className="mr-2" />
+                           999 - Call Now
+                        </a>
+                        <p className="text-sm">For immediate emergency assistance, please call our hotline.</p>
+                     </AlertDescription>
+                  </Alert>
+               </div>
+               <div className='flex items-start'>
+                  <img src={ambulance} alt="Ambulance" className='max-w-sm' />
+               </div>
+            </section>
 
-
-
-            <div className='grid grid-cols-1 h-auto items-start lg:grid-cols-3  gap-6' >
-               <div className='lg:col-span-2 h-full'>
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">Emergency Health Information</h3>
-
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+               <section className="lg:col-span-2">
+                  <h2 className="text-2xl font-semibold text-title mb-4">Emergency Health Information</h2>
                   <div className="space-y-4">
-                     {/* Article 1 */}
-                     <div className="bg-white p-4 rounded-lg shadow-md">
-                        <h4 className="text-xl font-bold text-gray-800">What to Do in a Medical Emergency</h4>
-                        <p className="text-gray-600 mt-2">
-                           In a medical emergency, it is critical to remain calm and act swiftly. Call for emergency medical help,
-                           provide first aid if trained, and ensure the safety of the patient while waiting for professional assistance.
-                           Time is often critical in situations like heart attacks, strokes, and accidents, so knowing basic first aid
-                           can save lives.
-                        </p>
-                     </div>
-
-                     {/* Article 2 */}
-                     <div className="bg-white p-4 rounded-lg shadow-md">
-                        <h4 className="text-xl font-bold text-gray-800">Common Emergency Situations and How to Respond</h4>
-                        <p className="text-gray-600 mt-2">
-                           Emergencies can range from accidents to health conditions like cardiac arrest. Knowing the symptoms of common
-                           emergencies and the first steps to take can make all the difference. For instance, in case of a heart attack,
-                           calling an ambulance and administering CPR (if necessary) should be done immediately.
-                        </p>
-                     </div>
-
-                     {/* Article 3 */}
-                     <div className="bg-white p-4 rounded-lg shadow-md">
-                        <h4 className="text-xl font-bold text-gray-800">How to Recognize and Handle a Stroke</h4>
-                        <p className="text-gray-600 mt-2">
-                           Strokes are life-threatening and must be addressed as soon as possible. Remember the acronym FAST: Face drooping,
-                           Arm weakness, Speech difficulty, and Time to call emergency services. Immediate medical intervention can reduce
-                           long-term damage and increase the chances of recovery.
-                        </p>
-                     </div>
+                     {[
+                        {
+                           title: "What to Do in a Medical Emergency",
+                           content: "In a medical emergency, it is critical to remain calm and act swiftly. Call for emergency medical help, provide first aid if trained, and ensure the safety of the patient while waiting for professional assistance. Time is often critical in situations like heart attacks, strokes, and accidents, so knowing basic first aid can save lives."
+                        },
+                        {
+                           title: "Common Emergency Situations and How to Respond",
+                           content: "Emergencies can range from accidents to health conditions like cardiac arrest. Knowing the symptoms of common emergencies and the first steps to take can make all the difference. For instance, in case of a heart attack, calling an ambulance and administering CPR (if necessary) should be done immediately."
+                        },
+                        {
+                           title: "How to Recognize and Handle a Stroke",
+                           content: "Strokes are life-threatening and must be addressed as soon as possible. Remember the acronym FAST: Face drooping, Arm weakness, Speech difficulty, and Time to call emergency services. Immediate medical intervention can reduce long-term damage and increase the chances of recovery."
+                        }
+                     ].map((article, index) => (
+                        <Card key={index}>
+                           <CardHeader>
+                              <CardTitle>{article.title}</CardTitle>
+                           </CardHeader>
+                           <CardContent>
+                              <p className='text-des font-normal text-base'>{article.content}</p>
+                           </CardContent>
+                        </Card>
+                     ))}
                   </div>
-               </div>
-               <div className="h-full">
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">Request an Ambulance</h3>
-                  <form className="space-y-4 bg-white p-6 rounded-lg shadow-md mb-8">
-                     {/* Name */}
-                     <div>
-                        <label className="block text-gray-700">Full Name</label>
-                        <input
-                           type="text"
-                           className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                           placeholder="Enter your full name"
-                           required
-                        />
-                     </div>
+               </section>
 
-                     {/* Phone Number */}
-                     <div>
-                        <label className="block text-gray-700">Phone Number</label>
-                        <input
-                           type="tel"
-                           className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                           placeholder="Enter your phone number"
-                           required
-                        />
-                     </div>
+               <section>
+                  <h2 className="text-2xl font-semibold text-title mb-4">Request an Ambulance</h2>
+                  <Card>
+                     <CardContent className="py-4">
+                        <form onSubmit={handleSubmit} className="space-y-4">
+                           <div className="space-y-2">
+                              <Label htmlFor="fullName">Full Name</Label>
+                              <Input id="fullName" placeholder="Enter your full name" required />
+                           </div>
 
-                     {/* Address */}
-                     <div>
-                        <label className="block text-gray-700">Address</label>
-                        <input
-                           type="text"
-                           className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                           placeholder="Enter the address where the ambulance is needed"
-                           required
-                        />
-                     </div>
+                           <div className="space-y-2">
+                              <Label htmlFor="phoneNumber">Phone Number</Label>
+                              <Input id="phoneNumber" type="tel" placeholder="Enter your phone number" required />
+                           </div>
 
-                     {/* Type of Emergency */}
-                     <div>
-                        <label className="block text-gray-700">Type of Emergency</label>
-                        <select
-                           className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                           required
-                        >
-                           <option value="">Select Emergency Type</option>
-                           <option value="Accident">Accident</option>
-                           <option value="Heart Attack">Heart Attack</option>
-                           <option value="Stroke">Stroke</option>
-                           <option value="Respiratory Issue">Respiratory Issue</option>
-                           <option value="Other">Other</option>
-                        </select>
-                     </div>
+                           <div className="space-y-2">
+                              <Label htmlFor="address">Address</Label>
+                              <Input id="address" placeholder="Enter the address where the ambulance is needed" required />
+                           </div>
 
-                     {/* Submit Button */}
-                     <div className="text-center mt-4">
-                        <Button
-                           type="submit"
-                           className="w-full"
-                        >
-                           Request Ambulance
-                        </Button>
-                     </div>
-                  </form>
-               </div>
+                           <div className="space-y-2">
+                              <Label htmlFor="emergencyType" className="">Type of Emergency</Label>
+                              <div className="space-y-3 pt-2 pb-2">
+                                 {emergencyTypes.map((type) => (
+                                    <div key={type.id} className="flex items-center space-x-2">
+                                       <Checkbox
+                                          id={type.id}
+                                          className="cursor-pointer"
+                                          checked={selectedEmergencies.includes(type.id)}
+                                          onCheckedChange={() => handleEmergencyTypeChange(type.id)}
+                                       />
+                                       <Label className="cursor-pointer" htmlFor={type.id}>{type.label}</Label>
+                                    </div>
+                                 ))}
+                              </div>
+                           </div>
 
-               {/* Articles Section */}
-
+                           <button type="submit" className="w-full primary-btn" disabled={isLoading}>
+                              {isLoading ? "Requesting..." : "Request Ambulance"}
+                           </button>
+                        </form>
+                     </CardContent>
+                  </Card>
+               </section>
             </div>
-
          </div>
       </div>
    );
