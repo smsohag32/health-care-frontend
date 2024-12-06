@@ -1,6 +1,8 @@
 import SectionTitle from '@/components/titles/SectionTitle';
 import React from 'react';
-
+import { motion } from 'framer-motion'
+import { User } from 'lucide-react';
+import { Link } from 'react-router-dom';
 const doctors = [
 
    {
@@ -68,14 +70,25 @@ const TopSpecialized = () => {
 
          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
             {doctors.map((doctor, index) => (
-               <div key={index} className='bg-white p-6 rounded-lg shadow-md flex flex-col items-center'>
-                  <div className='flex items-center flex-col justify-center'>
-                     <div className='text-3xl place-items-center text-indigo-600 secondary-bg p-5 flex items-center justify-center rounded-full'>
-                        <span> {doctor.icon}</span>
+               <motion.div
+                  key={index}
+                  className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+               >
+                  <div className="flex items-center flex-col justify-center w-full">
+                     <div className="text-4xl bg-primary/10 text-primary p-6 rounded-full mb-4">
+                        {doctor.icon || <User className="w-8 h-8" />}
                      </div>
-                     <h3 className='ml-4 text-[24px] font-medium mt-4'>{doctor.name}</h3>
+                     <h3 className="text-xl font-semibold text-gray-800 mb-2">{doctor.name}</h3>
+                     <p className="text-sm text-gray-600">{doctor.specialty}</p>
                   </div>
-               </div>
+                  <div className="mt-4 flex items-center justify-center text-center w-full">
+                     <Link to={"/find-doctors"} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium py-2 px-4 rounded transition duration-300 ease-in-out">
+                        Book Appointment
+                     </Link>
+                  </div>
+               </motion.div>
             ))}
          </div>
       </div>

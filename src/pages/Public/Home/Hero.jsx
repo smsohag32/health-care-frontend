@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import doctor from "@/assets/hero/doctor.svg"
+import doctor from "@/assets/hero/doctor.png"
 import { Stethoscope } from 'lucide-react';
 
 const Hero = () => {
@@ -30,7 +30,7 @@ const Hero = () => {
             </div>
 
 
-            <span className='text-des absolute move-animation top-20 right-2/3 z-30'><Stethoscope className='rotate-180' /></span>
+            <span className='text-des absolute move-animation top-20 right-1/3 lg:right-2/3 z-30'><Stethoscope className='rotate-180' /></span>
          </div>
       </div>
    );

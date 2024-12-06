@@ -1,13 +1,12 @@
 import { ServiceCard } from "@/components/cards/ServiceCard";
-import { Ambulance, Home, Hospital, House } from "lucide-react";
-import * as React from "react";
+import { Ambulance, Hospital, House, Stethoscope } from "lucide-react";
 
 const ServiceSection = () => {
    return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:-mt-10 md:grid-cols-3 main-container lg:grid-cols-3 gap-6 pb-16">
          <ServiceCard
             title="Video Consultancy"
-            description="Consult with best doctors through video call."
+            description="Consult with top doctors through secure video calls from the comfort of your home."
             icon={
                <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +26,7 @@ const ServiceSection = () => {
          />
          <ServiceCard
             title="Chamber Appointment"
-            description="Book your appointment easily with few clicks."
+            description="Book an appointment with your preferred doctor in just a few clicks."
             icon={
                <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -47,35 +46,26 @@ const ServiceSection = () => {
          />
          <ServiceCard
             title="Doctor At Your Home"
-            description="Book a doctor to visit you at home."
-            icon={
-               <House className="" size={48} />
-            }
+            description="Request a doctor to visit you at your residence for a check-up."
+            icon={<House size={48} className="text-skyblue" />}
          />
          <ServiceCard
             title="Ambulance Service"
-            description="24/7 Emergency Ambulance Service."
-            icon={
-               <Ambulance size={48} />
-            }
+            description="Emergency ambulance services available 24/7 to ensure quick response."
+            icon={<Ambulance size={48} className="text-skyblue" />}
          />
          <ServiceCard
-            title="Domiciliary Service"
-            description="Physiotherapy and Nurse service at home."
-            icon={
-               <Hospital size={48} />
-            }
+            title="Nursing Care"
+            description="Professional nursing care services at your home for recovery or chronic conditions."
+            icon={<Hospital size={48} className="text-skyblue" />}
          />
          <ServiceCard
-            title="Domiciliary Service"
-            description="Physiotherapy and Nurse service at home."
-            icon={
-               <Hospital size={48} />
-            }
+            title="Physiotherapy Services"
+            description="Get physiotherapy sessions at home with our trained specialists."
+            icon={<Stethoscope size={48} className="text-skyblue" />}
          />
       </div>
    );
-}
+};
 
-
-export default ServiceSection
+export default ServiceSection;

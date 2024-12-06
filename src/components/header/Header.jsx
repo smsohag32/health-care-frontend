@@ -26,13 +26,13 @@ const Header = () => {
 
    return (
       <div
-         className={`fixed right-0 left-0 top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+         className={`fixed right-0 left-0 top-0 py-2 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
             }`}
       >
          <nav className='main-container flex items-center justify-between'>
             <div className='flex z-50 items-center lg:gap-16'>
                <Link to={'/'}>
-                  <img className='w-[150px] lg:w-[180px]' src={logo} alt="logo" />
+                  <img className='w-[150px] lg:w-[160px]' src={logo} alt="logo" />
                </Link>
             </div>
 
@@ -43,7 +43,7 @@ const Header = () => {
                         key={path}
                         to={path}
                         className={({ isActive }) =>
-                           `py-4 relative transition-all text-base  duration-300 font-medium ${isActive ? 'text-skyblue ' : 'text-title'}`
+                           `py-3 relative transition-all text-base  duration-300 font-medium ${isActive ? 'text-skyblue ' : 'text-title'}`
                         }
                      >
                         {name}
