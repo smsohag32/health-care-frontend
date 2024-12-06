@@ -76,7 +76,7 @@ const DoctorCard = ({ doctor }) => {
                   />
                </PopoverContent>
             </Popover>
-            <Button className='outline-btn max-w-[180px]'>Book appointment</Button>
+            <button className=' primary-btn max-w-[180px]'>Book appointment</button>
          </div>
       </div>
    );

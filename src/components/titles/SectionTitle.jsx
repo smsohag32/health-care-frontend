@@ -3,8 +3,8 @@ import React from 'react';
 const SectionTitle = ({ title, description }) => {
    return (
       <div className='max-w-3xl'>
-         <h1 className=' text-[26px] font-medium'>{title}</h1>
-         <p className='des-title font-normal  text-lg'>{description}</p>
+         <h1 className=' text-[24px] lg:text-[28px] font-normal text-title'>{title}</h1>
+         <p className='text-des font-normal  text-[20px]'>{description}</p>
       </div>
    );
 };

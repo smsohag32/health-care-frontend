@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from "@/assets/logo/logo.webp";
+import logo from "@/assets/icons/logo.png";
 import { Link, NavLink } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 
@@ -24,6 +24,9 @@ const Header = () => {
       };
    }, []);
 
+
+
+
    return (
       <div
          className={`fixed right-0 left-0 top-0 py-2 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
@@ -31,8 +34,9 @@ const Header = () => {
       >
          <nav className='main-container flex items-center justify-between'>
             <div className='flex z-50 items-center lg:gap-16'>
-               <Link to={'/'}>
-                  <img className='w-[150px] lg:w-[160px]' src={logo} alt="logo" />
+               <Link to={'/'} className='flex items-center gap-2'>
+                  <img className=' max-w-[35px]' src={logo} alt="logo" />
+                  <p className='text-title text-[20px]'>Health Care</p>
                </Link>
             </div>
 
@@ -49,6 +53,7 @@ const Header = () => {
                         {name}
                      </NavLink>
                   ))}
+                  <Link to={"https://healthcare-administrator.web.app/"} className="rounded-[2rem] font-normal border-[#fffff] border text-base flex bg-[#DEF3FF] px-4 py-2 text-skyblue items-center gap-2">Log in</Link>
                </div>
             </div>
 

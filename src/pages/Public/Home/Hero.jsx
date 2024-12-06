@@ -29,7 +29,6 @@ const Hero = () => {
                <img className='lg:max-w-[600px]' src={doctor} alt="Doctor" />
             </div>
 
-
             <span className='text-des absolute move-animation top-20 right-1/3 lg:right-2/3 z-30'><Stethoscope className='rotate-180' /></span>
          </div>
       </div>

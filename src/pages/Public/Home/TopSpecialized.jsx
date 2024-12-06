@@ -84,7 +84,7 @@ const TopSpecialized = () => {
                      <p className="text-sm text-gray-600">{doctor.specialty}</p>
                   </div>
                   <div className="mt-4 flex items-center justify-center text-center w-full">
-                     <Link to={"/find-doctors"} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium py-2 px-4 rounded transition duration-300 ease-in-out">
+                     <Link to={"/find-doctors"} className="rounded-[8px] font-normal border-[#fffff] hover:scale-105 border transition-all duration-300 text-base flex bg-[#DEF3FF] px-4 py-2 text-skyblue items-center gap-2">
                         Book Appointment
                      </Link>
                   </div>
