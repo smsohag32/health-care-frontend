@@ -36,7 +36,7 @@ const Header = () => {
             <div className='flex z-50 items-center lg:gap-16'>
                <Link to={'/'} className='flex items-center gap-2'>
                   <img className=' max-w-[35px]' src={logo} alt="logo" />
-                  <p className='text-title text-[20px]'>Health Care</p>
+                  <p className='text-title text-[20px]'>HEALTH CARE</p>
                </Link>
             </div>
 
@@ -53,7 +53,7 @@ const Header = () => {
                         {name}
                      </NavLink>
                   ))}
-                  <Link to={"https://healthcare-administrator.web.app/"} className="rounded-[2rem] font-normal border-[#fffff] border text-base flex bg-[#DEF3FF] px-4 py-2 text-skyblue items-center gap-2">Log in</Link>
+                  <Link to={"https://healthcare-administrator.web.app/"} className="rounded-[4px] font-normal border-[#fffff] border text-base flex bg-primaryBlue px-4 py-2 text-white items-center gap-2">Sing in</Link>
                </div>
             </div>
 
