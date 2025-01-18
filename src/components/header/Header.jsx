@@ -47,7 +47,7 @@ const Header = () => {
                         key={path}
                         to={path}
                         className={({ isActive }) =>
-                           `py-3 relative transition-all text-base  duration-300 font-medium ${isActive ? 'text-skyblue ' : 'text-title'}`
+                           `py-3 relative transition-all text-base  duration-300 font-medium ${isActive ? 'text-primaryBlue ' : 'text-title'}`
                         }
                      >
                         {name}

@@ -72,19 +72,19 @@ const TopSpecialized = () => {
             {doctors.map((doctor, index) => (
                <motion.div
                   key={index}
-                  className="bg-white p-6 rounded-lg shadow-md hover:shadow-none transition-shadow duration-300 flex flex-col items-center"
-                  whileHover={{ scale: 1.05 }}
+                  className="bg-white p-6 rounded-sm border hover:shadow-none transition-shadow duration-300 flex flex-col items-center"
+                  whileHover={{ scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 300 }}
                >
                   <div className="flex items-center flex-col justify-center w-full">
-                     <div className="text-4xl bg-primary/10 text-primary p-6 rounded-full mb-4">
+                     <div className="text-4xl bg-bluelight text-primary p-6 rounded-full mb-4">
                         {doctor.icon || <User className="w-8 h-8" />}
                      </div>
                      <h3 className="text-xl font-semibold text-gray-800 mb-2">{doctor.name}</h3>
                      <p className="text-sm text-gray-600">{doctor.specialty}</p>
                   </div>
                   <div className="mt-4 flex items-center justify-center text-center w-full">
-                     <Link to={"/find-doctors"} className="primary-btn">
+                     <Link to={"/find-doctors"} className="rounded-[4px] w-full text-center justify-center font-normal border-[#fffff] border text-sm flex bg-primaryBlue px-4 py-2 text-white items-center gap-2">
                         Book Appointment
                      </Link>
                   </div>

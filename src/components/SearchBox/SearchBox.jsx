@@ -19,7 +19,7 @@ const SearchBox = () => {
    }
    return (
       <div className='w-full' >
-         <div className=' py-10 footer- bg-skyblue px-14  rounded-[8px] '>
+         <div className=' py-10 footer- bg-primaryBlue px-14  rounded-[8px] '>
             <div className='lg:flex hidden items-center justify-between gap-6'>
                <CustomDropdown
                   options={[

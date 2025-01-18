@@ -22,7 +22,7 @@ const Telemedicine = () => {
                </CardHeader>
                <CardContent>
                   <p className="mb-4">Connect with a doctor face-to-face through our secure video platform.</p>
-                  <Button className="w-full">Start Video Call</Button>
+                  <button className="w-full primary-btn">Start Video Call</button>
                </CardContent>
             </Card>
             <Card>
@@ -34,7 +34,7 @@ const Telemedicine = () => {
                </CardHeader>
                <CardContent>
                   <p className="mb-4">Get quick medical advice through our chat service with licensed physicians.</p>
-                  <Button className="w-full">Start Chat</Button>
+                  <button className="w-full primary-btn">Start Chat</button>
                </CardContent>
             </Card>
             <Card>
@@ -46,7 +46,7 @@ const Telemedicine = () => {
                </CardHeader>
                <CardContent>
                   <p className="mb-4">Book a future telemedicine appointment with your preferred doctor.</p>
-                  <Button className="w-full">Schedule Now</Button>
+                  <button className="w-full primary-btn">Schedule Now</button>
                </CardContent>
             </Card>
          </div>

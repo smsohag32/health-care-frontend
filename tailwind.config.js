@@ -57,7 +57,8 @@ module.exports = {
             lightbg: "#E8F4FA",
             bluelight: "#E8F4FA",
             skyblue: "#178CCB",
-            primaryBlue: "#178CCB",
+            primaryBlue: "#00acc1",
+            hoverPrimaryBlue: "#008BA3",
          },
          borderRadius: {
             lg: "var(--radius)",

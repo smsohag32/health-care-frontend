@@ -111,13 +111,21 @@
 
    /* button  */
    .primary-btn {
-      @apply bg-gradient-to-br w-full from-[#178CCB] py-[12px] px-6 to-[#178CCB] text-base flex items-center gap-2 justify-center font-normal text-white rounded-[8px];
-      @apply transition-all duration-300 ease-in-out;
+      @apply rounded-[4px] w-full text-center justify-center font-normal border-[#ffffff] border text-sm flex bg-primaryBlue px-4 py-2 text-white items-center gap-2 transition-transform duration-200 ease-in-out;
    }
 
    .primary-btn:hover {
-      @apply from-[#0d6fa2] to-[#0d6fa2] shadow-lg scale-105;
+      @apply bg-hoverPrimaryBlue transition-all duration-200;
    }
+
+   .primary-btn:active {
+      @apply scale-95;
+   }
+
+   .primary-btn:focus {
+      @apply outline-none ring-2 ring-hoverPrimaryBlue ring-offset-2; /* Accessible focus state */
+   }
+
    .outline-btn {
       @apply primary-text bg-transparent  transition-all duration-300  rounded-[8px] py-[12px] px-7 w-full text-sm font-medium hover:ring border hover:border-blue-500 hover:text-blue-500 border-blue-600 hover:ring-blue-200;
    }

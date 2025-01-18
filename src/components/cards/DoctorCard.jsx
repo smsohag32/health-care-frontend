@@ -94,7 +94,7 @@ const DoctorCard = ({ doctor }) => {
                            />
                         </PopoverContent>
                      </Popover>
-                     <Button className="w-full sm:w-auto">Book Appointment</Button>
+                     <button className="w-full sm:w-auto primary-btn">Book Appointment</button>
                   </div>
                </div>
             </div>
