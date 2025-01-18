@@ -5,80 +5,101 @@ import {
    PopoverContent,
    PopoverTrigger,
 } from "@/components/ui/popover"
-import doctorImage from "@/assets/doctors/doctor_2.jpg"
-import { Button } from '../ui/button';
-import { cn } from '@/lib/utils';
-import { CalendarIcon } from 'lucide-react';
-import { format } from 'date-fns';
-import { Badge } from '../ui/badge';
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import { CalendarIcon, MapPin, Phone, Star, Clock } from 'lucide-react';
+import { cn } from "@/lib/utils"
+import { format } from "date-fns"
+
+
+
 const DoctorCard = ({ doctor }) => {
    const [date, setDate] = useState()
 
    return (
-      <div className='primary-shadow rounded-[8px] relative bg-white px-5 pt-4 pb-2'>
-         <div className='flex gap-6 items-start'>
-            <div className='w-32 h-28 '>
-               <img src={doctorImage} className='w-32 h-28 rounded-[8px] object-cover' alt="doctor" />
-            </div>
-            <div>
-               <h2 className='text-[20px] font-medium text-title'>Dr. Tarikul Islam</h2>
-               <p className='text-des max-w-sm  font-normal text-base'>MBBSBCS (Health)
-                  MPhil (Pathology). Pathologist</p>
-               <p className='text-title font-medium'>Years of Experience : <span>2 Years</span></p>
-
-
-               <div className='flex flex-col lg:flex-row gap-6 items-start'>
-                  <div className='w-full'>
-                     <p className='text-title font-normal'>Unity Aid Hospital Ltd.</p>
-                     <p className='text-des text-sm font-normal mt-5'>House #16, Road # 2, Dhanmondi R/A, 6, Dhanmondi, Dhaka-1205, Bangladesh</p>
-                  </div>
-
-                  <div className='w-full'>
-                     <p className='text-base font-medium text-title'>Availability</p>
-                     <div className='mt-4 space-x-3'>
-                        <Badge className='' variant={"outline"}>Sat</Badge>
-                        <Badge className='' variant={"outline"}>Sun</Badge>
-                        <Badge className='' variant={"outline"}>Mon</Badge>
+      <Card className="w-full overflow-hidden">
+         <CardContent className="p-0">
+            <div className="flex flex-col md:flex-row">
+               <div className="w-full md:w-1/4 h-48 md:h-auto bg-gray-200">
+                  {doctor.image ? (
+                     <img
+                        src={doctor.image || "/placeholder.svg"}
+                        alt={doctor.name}
+                        className="w-full h-full object-cover"
+                     />
+                  ) : (
+                     <div className="w-full h-full flex items-center justify-center text-gray-500">
+                        No Image Available
                      </div>
+                  )}
+               </div>
+               <div className="w-full md:w-3/4 p-6">
+                  <div className="flex justify-between items-start mb-4">
+                     <div>
+                        <h2 className="text-2xl font-bold text-gray-800">{doctor.name}</h2>
+                        <p className="text-gray-600">{doctor.qualification}</p>
+                     </div>
+                     <Badge variant="secondary" className="text-lg py-1 px-3">
+                        {doctor.specialization}
+                     </Badge>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                     <div className="flex items-center">
+                        <MapPin className="mr-2 text-gray-500" size={18} />
+                        <span className="text-sm text-gray-700">{doctor.hospital}</span>
+                     </div>
+                     <div className="flex items-center">
+                        <Clock className="mr-2 text-gray-500" size={18} />
+                        <span className="text-sm text-gray-700">{doctor.experience} years experience</span>
+                     </div>
+                     <div className="flex items-center">
+                        <Phone className="mr-2 text-gray-500" size={18} />
+                        <span className="text-sm text-gray-700">{doctor.phone}</span>
+                     </div>
+                     <div className="flex items-center">
+                        <Star className="mr-2 text-yellow-500" size={18} />
+                        <span className="text-sm text-gray-700">{doctor.rating} Rating</span>
+                     </div>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">{doctor.address}</p>
+                  <div className="mb-4">
+                     <p className="font-semibold mb-2">Availability:</p>
+                     <div className="flex flex-wrap gap-2">
+                        {doctor.availability.map((day, index) => (
+                           <Badge key={index} variant="outline">{day}</Badge>
+                        ))}
+                     </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                     <Popover>
+                        <PopoverTrigger asChild>
+                           <Button
+                              variant="outline"
+                              className={cn(
+                                 "w-full sm:w-[240px] justify-start text-left font-normal",
+                                 !date && "text-muted-foreground"
+                              )}
+                           >
+                              <CalendarIcon className="mr-2 h-4 w-4" />
+                              {date ? format(date, "PPP") : <span>Pick an appointment date</span>}
+                           </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0" align="start">
+                           <Calendar
+                              mode="single"
+                              selected={date}
+                              onSelect={setDate}
+                              initialFocus
+                           />
+                        </PopoverContent>
+                     </Popover>
+                     <Button className="w-full sm:w-auto">Book Appointment</Button>
                   </div>
                </div>
             </div>
-         </div>
-
-         {/* expertise */}
-         <div className='mt-4'>
-            <Badge variant={"secondary"}>Cardiology</Badge>
-         </div>
-         <button className='absolute right-0 py-2 flex items-center justify-center px-5 secondary-bg top-0'>Available Call</button>
-
-         <hr className='mt-6' />
-
-         <div className='py-3 flex justify-end gap-6 items-center mt-4'>
-            <Popover>
-               <PopoverTrigger asChild>
-                  <Button
-                     variant={"outline"}
-                     className={cn(
-                        "w-[280px] justify-start items-center gap-2 text-left font-normal",
-                        !date && "text-muted-foreground"
-                     )}
-                  >
-                     <CalendarIcon size={16} />
-                     {date ? format(date, "PPP") : <span>Select a date</span>}
-                  </Button>
-               </PopoverTrigger>
-               <PopoverContent className="w-auto p-0">
-                  <Calendar
-                     mode="single"
-                     selected={date}
-                     onSelect={setDate}
-                     initialFocus
-                  />
-               </PopoverContent>
-            </Popover>
-            <button className=' primary-btn max-w-[180px]'>Book appointment</button>
-         </div>
-      </div>
+         </CardContent>
+      </Card>
    );
 };
 

@@ -9,7 +9,7 @@ import SectionTitle from '@/components/titles/SectionTitle';
 
 const FaqSection = () => {
    return (
-      <div className="w-full main-container pb-16">
+      <div className="w-full main-container my-16">
          <div className='flex items-center justify-center'>
             <SectionTitle title={"Frequently Ask Questions"} />
          </div>
