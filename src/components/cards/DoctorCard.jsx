@@ -24,7 +24,7 @@ const DoctorCard = ({ doctor }) => {
                <div className="w-full md:w-1/4 h-48 md:h-auto bg-gray-200">
                   {doctor.image ? (
                      <img
-                        src={doctor.image || "/placeholder.svg"}
+                        src={"https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI="}
                         alt={doctor.name}
                         className="w-full h-full object-cover"
                      />

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import logo from "@/assets/icons/logo.png";
 import { Link, NavLink } from 'react-router-dom';
 import { Menu } from 'lucide-react';
+import HeaderLoginModal from './HeaderLoginModal';
 
 const Header = () => {
    const [isScrolled, setIsScrolled] = useState(false);
+   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
 
    const navItems = [
       { name: 'Home', path: '/' },
@@ -53,7 +55,13 @@ const Header = () => {
                         {name}
                      </NavLink>
                   ))}
-                  <Link to={"https://healthcare-administrator.web.app/"} className="rounded-[4px] font-normal border-[#fffff] border text-base flex bg-primaryBlue px-4 py-2 text-white items-center gap-2">Sing in</Link>
+                  <button
+                     onClick={() => setIsLoginModalOpen(true)}
+                     className="rounded-[4px] font-normal border-[#fffff] border text-base flex bg-primaryBlue px-4 py-2 text-white items-center gap-2 hover:bg-primaryBlue/90 transition-colors"
+                  >
+                     Sign in
+                  </button>
+                  {/* <Link to={"https://healthcare-administrator.web.app/"} className="rounded-[4px] font-normal border-[#fffff] border text-base flex bg-primaryBlue px-4 py-2 text-white items-center gap-2">Sing in</Link> */}
                </div>
             </div>
 
@@ -63,6 +71,7 @@ const Header = () => {
                </button>
             </div>
          </nav>
+         <HeaderLoginModal isOpen={isLoginModalOpen} onClose={setIsLoginModalOpen} />
       </div>
    );
 };

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LucideHospital, LucideMapPin, LucidePhone, LucideClock, LucideStar } from 'lucide-react';
+import SearchInput from '@/components/SearchBox/SearchInput';
 
 const hospitals = [
    {
@@ -150,21 +151,30 @@ const hospitals = [
 ];
 
 const FindHospital = () => {
+   const [searchText, setSearchText] = useState("")
+
+
+   const filteredHospitals = hospitals.filter((hospital) =>
+      hospital.name.toLowerCase().includes(searchText.toLowerCase())
+   );
    return (
-      <div className="min-h-screen main-container  flex flex-col items-center py-10">
+      <div className="min-h-screen main-container  flex flex-col items-center pt-6 pb-10">
          {/* Header */}
          <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
+            <h1 className="text-3xl md:text-4xl font-semibold text-gray-700">
                Find a Hospital Near You
             </h1>
-            <p className="text-gray-600 mt-2">
+            <p className="text-gray-600 max-w-sm mx-auto w-full mt-2">
                Browse through the list of hospitals and get their contact details and available services.
             </p>
+            <div className='mt-4'>
+               <SearchInput value={searchText} setValue={setSearchText} />
+            </div>
          </div>
 
          {/* Hospital List */}
-         <div className="w-full grid lg:grid-cols-2 gap-4  space-y-6">
-            {hospitals.map((hospital) => (
+         {filteredHospitals && filteredHospitals?.length > 0 ? <div className="w-full grid lg:grid-cols-2 gap-4  space-y-6">
+            {filteredHospitals?.map((hospital) => (
                <div
                   key={hospital.id}
                   className="bg-white shadow-md rounded-lg p-6 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300"
@@ -208,7 +218,23 @@ const FindHospital = () => {
                   </div>
                </div>
             ))}
-         </div>
+         </div> : <div className="w-full flex flex-col items-center justify-center py-12 px-4">
+            <div className="bg-blue-50 rounded-full p-6 mb-4">
+               <LucideHospital className="w-10 h-10 text-blue-500" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">No hospitals found</h3>
+            <p className="text-gray-600 text-center max-w-md mb-6">
+               We couldn&apos;t find any hospitals matching your search criteria. Please try different keywords or browse all
+               hospitals.
+            </p>
+            <button
+               onClick={() => setSearchText("")}
+               className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300 flex items-center gap-2"
+            >
+               <LucideHospital className="w-4 h-4" />
+               View all hospitals
+            </button>
+         </div>}
       </div>
    );
 };

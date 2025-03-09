@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { loginApi } from "../api/loginApi";
+import { loginApi } from "../services/loginApi";
 import { deleteCookie, getCookie, setCookie } from "@/utils/helper";
 const getPersistedToken = getCookie("hc-token");
 const getPersistedUser = JSON.parse(getCookie("hc-user"));

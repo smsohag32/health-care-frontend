@@ -22,7 +22,7 @@ const HealthTips = () => {
                <Card key={tip.id}>
                   <CardHeader>
                      <CardTitle className="flex items-center text-title gap-2">
-                        <tip.icon className="h-5 w-5" />
+                        <tip.icon className="h-5 w-5 text-sky-500" />
                         {tip.title}
                      </CardTitle>
                   </CardHeader>
